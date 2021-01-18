@@ -190,10 +190,10 @@ namespace eureka_blocks {
 
   }
 
- //% color="#858585" weight=52 blockId=eureka_ana_mdriver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ |%channel| 動き|%mode| 出力|%power|" group="4_ユーレカ装置"
+ //% color="#858585" weight=52 blockId=eureka_ana_mdriver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ |%channel_AB| 動き|%mode| 出力|%power|" group="4_ユーレカ装置"
   //% power.min=0 power.max=1023
-  export function eureka_ana_mdriver(channel: eureka_channel , mode: moter_d ,power:number) {
-    switch (channel) {
+  export function eureka_ana_mdriver(channel_AB: eureka_channel , mode: moter_d ,power:number) {
+    switch (channel_AB) {
       case eureka_channel.Aﾁｬﾝﾈﾙ:
         if (mode == moter_d.正転) {
           pins.analogWritePin(AnalogPin.P3, power);
