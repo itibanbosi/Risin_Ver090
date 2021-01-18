@@ -171,6 +171,7 @@ namespace eureka_blocks {
         if (mode == moter_d.停止) {
           pins.digitalWritePin(DigitalPin.P3, 0);
           pins.digitalWritePin(DigitalPin.P4, 0);
+        return
         }
       case eureka_channel.Bﾁｬﾝﾈﾙ:
         if (mode == moter_d.正転) {
@@ -185,7 +186,7 @@ namespace eureka_blocks {
           pins.digitalWritePin(DigitalPin.P6, 0);
           pins.digitalWritePin(DigitalPin.P7, 0);
         }
-
+        return
     }
 
   }
