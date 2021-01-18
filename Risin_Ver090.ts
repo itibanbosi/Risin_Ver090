@@ -161,35 +161,35 @@ namespace eureka_blocks {
     switch (channel) {
       case eureka_channel.A:
         if (mode == moter_d.正転) {
-          pins.digitalWritePin(DigitalPin.P0, 1);
-          pins.digitalWritePin(DigitalPin.P13, 0);
+          pins.digitalWritePin(DigitalPin.P3, 1);
+          pins.digitalWritePin(DigitalPin.P4, 0);
         }
         if (mode == moter_d.逆転) {
-          pins.digitalWritePin(DigitalPin.P0, 0);
-          pins.digitalWritePin(DigitalPin.P13, 1);
+          pins.digitalWritePin(DigitalPin.P3, 0);
+          pins.digitalWritePin(DigitalPin.P4, 1);
         }
         if (mode == moter_d.停止) {
-          pins.digitalWritePin(DigitalPin.P0, 0);
-          pins.digitalWritePin(DigitalPin.P13, 0);
+          pins.digitalWritePin(DigitalPin.P3, 0);
+          pins.digitalWritePin(DigitalPin.P4, 0);
         }
       case eureka_channel.A:
         if (mode == moter_d.正転) {
-          pins.digitalWritePin(DigitalPin.P0, 1);
-          pins.digitalWritePin(DigitalPin.P13, 0);
+          pins.digitalWritePin(DigitalPin.P6, 1);
+          pins.digitalWritePin(DigitalPin.P7, 0);
         }
         if (mode == moter_d.逆転) {
-          pins.digitalWritePin(DigitalPin.P0, 0);
-          pins.digitalWritePin(DigitalPin.P13, 1);
+          pins.digitalWritePin(DigitalPin.P6, 0);
+          pins.digitalWritePin(DigitalPin.P7, 1);
         }
         if (mode == moter_d.停止) {
-          pins.digitalWritePin(DigitalPin.P0, 0);
-          pins.digitalWritePin(DigitalPin.P13, 0);
+          pins.digitalWritePin(DigitalPin.P6, 0);
+          pins.digitalWritePin(DigitalPin.P7, 0);
         }
 
     }
 
   }
-  }
+}
 
 
 
