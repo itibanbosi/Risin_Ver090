@@ -207,6 +207,7 @@ namespace eureka_blocks {
           pins.digitalWritePin(DigitalPin.P3, 0);
           pins.digitalWritePin(DigitalPin.P4, 0);
         }
+      
       case eureka_channel.B:
         if (mode == moter_d.正転) {
           pins.analogWritePin(AnalogPin.P6, power);
