@@ -82,8 +82,8 @@ namespace eureka_blocks {
         }
   }
 
-  //% color="#ff4940" weight=85 blockId=eureka_LED="LED |%mode|" group="2_動作"
-  export function eureka_LED(mode: onoff) {
+  //% color="#ff4940" weight=85 blockId=eureka_5VLED="LED |%mode|" group="2_動作"
+  export function eureka_5VLED(mode: onoff) {
 
         if (mode == onoff.ON) {
           return pins.digitalWritePin(DigitalPin.P8, 1);
