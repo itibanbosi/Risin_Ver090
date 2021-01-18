@@ -60,7 +60,41 @@ namespace eureka_blocks {
     basic.pause(second * 1000);
   }
 
-  //% color="#009A00"  weight=80 block="光ｾﾝｻ値 |%limit| より暗い" group="3_電気の利用ユニット"
+
+   //% color="#4741f1" weight=89 blockId=eureka_mame block="豆電球 |%mode|" group="2_動作"
+    export function eureka_mame(mode: onoff) {
+    
+        if (mode == onoff.ON) {
+          return pins.digitalWritePin(DigitalPin.P14, 1);
+        } else {
+          return pins.digitalWritePin(DigitalPin.P14, 0);
+        }
+
+  }
+
+  //% color="#ffa800" weight=87 blockId=eureka_moter block="モーター |%mode|" group="2_動作"
+  export function eureka_moter(mode: onoff) {
+
+        if (mode == onoff.ON) {
+          return pins.digitalWritePin(DigitalPin.P13, 1);
+        } else {
+          return pins.digitalWritePin(DigitalPin.P13, 0);
+        }
+  }
+
+  //% color="#ff4940" weight=85 blockId=eureka_LED="LED |%mode|" group="2_動作"
+  export function eureka_LED(mode: onoff) {
+
+        if (mode == onoff.ON) {
+          return pins.digitalWritePin(DigitalPin.P8, 1);
+        } else {
+          return pins.digitalWritePin(DigitalPin.P8, 0);
+        }
+  }
+  
+  
+  
+    //% color="#009A00"  weight=80 block="光ｾﾝｻ値 |%limit| より暗い" group="3_電気の利用ユニット"
   //% limit.min=0 limit.max=100
   export function decideLight(limit: number){
 
