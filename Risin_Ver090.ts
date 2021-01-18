@@ -1,15 +1,15 @@
+enum eureka_channel {
+  A,
+  B,
+}
 enum onoff {
   ON,
   OFF,
 }
 
 enum moter_d {
-  両方前,
-  両方後,
-  Ｌだけ前,
-  Ｒだけ前,
-  Ｌだけ後,
-  Ｒだけ後,
+  正転,
+  逆転,
   停止,
 }
 enum etc {
@@ -152,55 +152,58 @@ namespace eureka_blocks {
         return pins.analogWritePin(AnalogPin.P15, syuturyoku);
   }
 
-}
 
 
 
 
-/*
-
-
-  //% color="#858585" weight=52 blockId=eureka_m_driver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰD 動き|%mode| |%pin|" group="4_ユーレカ装置"
-  export function eureka_m_driver(mode: moter_d, pin: eureka_denki) {
-
-        if (mode == moter_d.両方前) {
-          pins.digitalWritePin(DigitalPin.P3, 1);
+ //% color="#858585" weight=52 blockId=eureka_mdriver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ |%channel| 動き|%mode|" group="4_ユーレカ装置"
+  export function eureka_mdriver(channel: eureka_channel , mode: moter_d) {
+    switch (channel) {
+      case eureka_channel.A:
+        if (mode == moter_d.正転) {
+          pins.digitalWritePin(DigitalPin.P0, 1);
           pins.digitalWritePin(DigitalPin.P13, 0);
-          pins.digitalWritePin(DigitalPin.P14, 1);
         }
-        if (mode == moter_d.両方後) {
-          pins.digitalWritePin(DigitalPin.P3, 0);
+        if (mode == moter_d.逆転) {
+          pins.digitalWritePin(DigitalPin.P0, 0);
           pins.digitalWritePin(DigitalPin.P13, 1);
-          pins.digitalWritePin(DigitalPin.P14, 0);
-        }
-        if (mode == moter_d.Ｌだけ前) {
-          pins.digitalWritePin(DigitalPin.P3, 0);
-          pins.digitalWritePin(DigitalPin.P13, 0);
-          pins.digitalWritePin(DigitalPin.P14, 1);
-        }
-        if (mode == moter_d.Ｒだけ前) {
-          pins.digitalWritePin(DigitalPin.P3, 1);
-          pins.digitalWritePin(DigitalPin.P13, 0);
-          pins.digitalWritePin(DigitalPin.P14, 0);
-        }
-        if (mode == moter_d.Ｌだけ後) {
-          pins.digitalWritePin(DigitalPin.P3, 0);
-          pins.digitalWritePin(DigitalPin.P13, 1);
-          pins.digitalWritePin(DigitalPin.P14, 1);
-        }
-        if (mode == moter_d.Ｒだけ後) {
-          pins.digitalWritePin(DigitalPin.P3, 1);
-          pins.digitalWritePin(DigitalPin.P13, 1);
-          pins.digitalWritePin(DigitalPin.P14, 0);
         }
         if (mode == moter_d.停止) {
-          pins.digitalWritePin(DigitalPin.P3, 0);
+          pins.digitalWritePin(DigitalPin.P0, 0);
           pins.digitalWritePin(DigitalPin.P13, 0);
-          pins.digitalWritePin(DigitalPin.P14, 0);
+        }
+      case eureka_channel.A:
+        if (mode == moter_d.正転) {
+          pins.digitalWritePin(DigitalPin.P0, 1);
+          pins.digitalWritePin(DigitalPin.P13, 0);
+        }
+        if (mode == moter_d.逆転) {
+          pins.digitalWritePin(DigitalPin.P0, 0);
+          pins.digitalWritePin(DigitalPin.P13, 1);
+        }
+        if (mode == moter_d.停止) {
+          pins.digitalWritePin(DigitalPin.P0, 0);
+          pins.digitalWritePin(DigitalPin.P13, 0);
         }
 
+    }
+
+  }
   }
 
-*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
