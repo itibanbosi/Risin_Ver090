@@ -172,7 +172,7 @@ namespace eureka_blocks {
           pins.digitalWritePin(DigitalPin.P3, 0);
           pins.digitalWritePin(DigitalPin.P4, 0);
         }
-      case eureka_channel.A:
+      case eureka_channel.B:
         if (mode == moter_d.正転) {
           pins.digitalWritePin(DigitalPin.P6, 1);
           pins.digitalWritePin(DigitalPin.P7, 0);
