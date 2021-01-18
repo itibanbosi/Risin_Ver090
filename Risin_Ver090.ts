@@ -156,7 +156,7 @@ namespace eureka_blocks {
 
 
 
- //% color="#858585" weight=52 blockId=eureka_mdriver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ |%channel| 動き|%mode|" group="4_ユーレカ装置"
+ //% color="#858585" weight=52 blockId=eureka_mdriver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ ﾁｬﾝﾈﾙ |%channel| 動き|%mode|" group="4_ユーレカ装置"
   export function eureka_mdriver(channel: eureka_channel , mode: moter_d) {
     switch (channel) {
       case eureka_channel.A:
