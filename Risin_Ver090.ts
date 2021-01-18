@@ -189,7 +189,46 @@ namespace eureka_blocks {
     }
 
   }
+
+ //% color="#858585" weight=52 blockId=eureka_ana_mdriver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ ﾁｬﾝﾈﾙ |%channel| 動き|%mode| 出力|%power|" group="4_ユーレカ装置"
+  //% power.min=0 power.max=1023
+  export function eureka_ana_mdriver(channel: eureka_channel , mode: moter_d ,power:number) {
+    switch (channel) {
+      case eureka_channel.A:
+        if (mode == moter_d.正転) {
+          pins.analogWritePin(AnalogPin.P3, power);
+          pins.digitalWritePin(DigitalPin.P4, 0);
+        }
+        if (mode == moter_d.逆転) {
+          pins.digitalWritePin(DigitalPin.P3, 0);
+          pins.analogWritePin(AnalogPin.P4, power);
+        }
+        if (mode == moter_d.停止) {
+          pins.digitalWritePin(DigitalPin.P3, 0);
+          pins.digitalWritePin(DigitalPin.P4, 0);
+        }
+      case eureka_channel.B:
+        if (mode == moter_d.正転) {
+          pins.analogWritePin(AnalogPin.P6, power);
+          pins.digitalWritePin(DigitalPin.P7, 0);
+        }
+        if (mode == moter_d.逆転) {
+          pins.digitalWritePin(DigitalPin.P6, 0);
+          pins.analogWritePin(AnalogPin.P7, power);
+        }
+        if (mode == moter_d.停止) {
+          pins.digitalWritePin(DigitalPin.P6, 0);
+          pins.digitalWritePin(DigitalPin.P7, 0);
+        }
+
+    }
+
+  }
 }
+
+
+
+
 
 
 
