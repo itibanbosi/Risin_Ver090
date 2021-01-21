@@ -17,12 +17,28 @@ enum etc {
   JINKAN,
 }
 
+enum LED_onoff {
+  無効,
+  有効,
+}
 
 
 //% color="#74ad1d" block="理振ボードVer090"
 
 namespace eureka_blocks {
 
+   //% color="#ff3d03" weight=12 blockId=auto_led_off block="ﾏｲｸﾛﾋﾞｯﾄのLEDを |%Matrix_LED| にする" group="1　調整"
+  export function auto_led_off(Matrix_LED:LED_onoff) {
+    switch(Matrix_LED){
+        case LED_onoff.無効:
+        led.enable(false);
+        break;
+        case LED_onoff.有効:
+        led.enable(true);
+    }
+  }
+ 
+ 
    //% color="#4741f1" weight=89 blockId=eureka_tl_blue block="青信号 点灯|%mode|" group="2_信号機ユニット"
     export function eureka_tl_blue(mode: onoff) {
     
@@ -158,6 +174,7 @@ namespace eureka_blocks {
 
  //% color="#858585" weight=52 blockId=eureka_mdriver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ ﾁｬﾝﾈﾙ |%channel| 動き|%mode|" group="4_ユーレカ装置"
   export function eureka_mdriver(channel: eureka_channel , mode: moter_d) {
+    led.enable(false);
     switch (channel) {
       case eureka_channel.A:
         if (mode == moter_d.正転) {
@@ -195,6 +212,7 @@ namespace eureka_blocks {
  //% color="#858585" weight=52 blockId=eureka_ana_mdriver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ ﾁｬﾝﾈﾙ |%channel_AB| 動き|%mode| 出力|%power|" group="4_ユーレカ装置"
   //% power.min=0 power.max=1023
   export function eureka_ana_mdriver(channel_AB: eureka_channel , mode: moter_d ,power:number) {
+    led.enable(false);
     switch (channel_AB) {
       case eureka_channel.A:
         if (mode == moter_d.正転) {
