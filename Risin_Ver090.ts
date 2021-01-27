@@ -175,7 +175,7 @@ namespace eureka_blocks {
   }
 
 
-  //% color="#e439b6" weight=58 blockId=eureka_relay block="FETﾘﾚｰ(ﾃﾞｼﾞﾀﾙ出力) |%mode|" group="5_外部制御"
+  //% color="#9932cc" weight=58 blockId=eureka_relay block="FETﾘﾚｰ(ﾃﾞｼﾞﾀﾙ出力) |%mode|" group="5_外部制御"
   export function eureka_relay(mode: onoff) {
         if (mode == onoff.ON) {
           return pins.digitalWritePin(DigitalPin.P15, 1);
@@ -184,7 +184,7 @@ namespace eureka_blocks {
         }
   }
 
-  //% color="#e439b6" weight=56 blockId=eureka_relay_2 block="FETﾘﾚｰ(ｱﾅﾛｸﾞ出力) |%limit| |%syuturyoku|" group="5_外部制御"
+  //% color="#9932cc" weight=56 blockId=eureka_relay_2 block="FETﾘﾚｰ(ｱﾅﾛｸﾞ出力) |%limit| |%syuturyoku|" group="5_外部制御"
   //% syuturyoku.min=0 syuturyoku.max=1023
   export function eureka_relay_2(syuturyoku: number) {
         return pins.analogWritePin(AnalogPin.P15, syuturyoku);
@@ -194,7 +194,7 @@ namespace eureka_blocks {
 
 
 
- //% color="#b22222" weight=52 blockId=eureka_mdriver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ ﾁｬﾝﾈﾙ |%channel| 動き|%mode|" group="5_外部制御"
+ //% color="#8b008b" weight=52 blockId=eureka_mdriver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ ﾁｬﾝﾈﾙ |%channel| 動き|%mode|" group="5_外部制御"
   export function eureka_mdriver(channel: eureka_channel , mode: moter_d) {
     led.enable(false);
     switch (channel) {
@@ -231,7 +231,7 @@ namespace eureka_blocks {
 
   }
 
- //% color="#b22222" weight=52 blockId=eureka_ana_mdriver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ ﾁｬﾝﾈﾙ |%channel_AB| 動き|%mode| 出力|%power|" group="5_外部制御"
+ //% color="#8b008b" weight=52 blockId=eureka_ana_mdriver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ ﾁｬﾝﾈﾙ |%channel_AB| 動き|%mode| 出力|%power|" group="5_外部制御"
   //% power.min=0 power.max=1023
   export function eureka_ana_mdriver(channel_AB: eureka_channel , mode: moter_d ,power:number) {
     led.enable(false);
