@@ -77,7 +77,7 @@ namespace eureka_blocks {
         }
   }
 
-  //% color="#ffd700" weight=85 blockId=eureka_5VLED block="LED |%mode|" group="2_豆電球・モーター・LED制御"
+  //% color="#dc143c" weight=85 blockId=eureka_5VLED block="LED |%mode|" group="2_豆電球・モーター・LED制御"
   export function eureka_5VLED(mode: onoff) {
 
         if (mode == onoff.ON) {
@@ -130,7 +130,7 @@ namespace eureka_blocks {
         return pins.digitalReadPin(DigitalPin.P16);
   }
 
-  //% color="#32cd32" weight=75 blockId=eureka_denkiwhite block="白LED |%mode|" group="3_電気の利用ユニット"
+  //% color="#ffd700" weight=75 blockId=eureka_denkiwhite block="白LED |%mode|" group="3_電気の利用ユニット"
   export function eureka_denkiwhite(mode: onoff) {
 
         if (mode == onoff.ON) {
