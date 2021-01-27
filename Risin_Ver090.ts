@@ -89,7 +89,7 @@ namespace eureka_blocks {
   
   
   
-    //% color="#6b8e23"  weight=81 block="光ｾﾝｻ値 |%limit| より |%syoudo|" group="3_電気の利用ユニット"
+    //% color="#228b22"  weight=81 block="光ｾﾝｻ値 |%limit| より |%syoudo|" group="3_電気の利用ユニット"
   //% limit.min=0 limit.max=100
   export function decideLight(limit: number,syoudo:kurasa) :boolean {
       switch(syoudo){
@@ -109,7 +109,7 @@ namespace eureka_blocks {
     }
 
 
-  //% color="#6b8e23"  weight=80 blockId=eureka_denkitemp block="光ｾﾝｻ値" group="3_電気の利用ユニット"
+  //% color="#228b22"  weight=80 blockId=eureka_denkitemp block="光ｾﾝｻ値" group="3_電気の利用ユニット"
   export function eureka_denkitemp(): number {
         return Math.round((pins.analogReadPin(AnalogPin.P1) / 1023) * 100);
   }
