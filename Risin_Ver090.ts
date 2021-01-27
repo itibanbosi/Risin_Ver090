@@ -123,7 +123,7 @@ namespace eureka_blocks {
 
   //% color="#6b8e23"  weight=80 blockId=eureka_tempu block="気温" group="3_電気の利用ユニット"
   export function eureka_temp(): number {
-        return  1;
+        return  BMP280.temperature()/100;
   }
 
 
