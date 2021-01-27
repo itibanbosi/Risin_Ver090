@@ -77,7 +77,7 @@ namespace eureka_blocks {
         }
   }
 
-  //% color="#ff4940" weight=85 blockId=eureka_5VLED block="LED |%mode|" group="2_豆電球・モーター・LED制御"
+  //% color="#ffd700" weight=85 blockId=eureka_5VLED block="LED |%mode|" group="2_豆電球・モーター・LED制御"
   export function eureka_5VLED(mode: onoff) {
 
         if (mode == onoff.ON) {
