@@ -56,7 +56,7 @@ namespace eureka_blocks {
 
   }
 
-  //% color="#daa520" weight=87 blockId=eureka_moter block="モーター |%mode|" group="2_動作"
+  //% color="#ffa500" weight=87 blockId=eureka_moter block="モーター |%mode|" group="2_動作"
   export function eureka_moter(mode: onoff) {
 
         if (mode == onoff.ON) {
@@ -111,7 +111,7 @@ namespace eureka_blocks {
         return pins.digitalReadPin(DigitalPin.P16);
   }
 
-  //% color="#ffd700" weight=75 blockId=eureka_denkiwhite block="白LED |%mode|" group="3_電気の利用ユニット"
+  //% color="#32cd32" weight=75 blockId=eureka_denkiwhite block="白LED |%mode|" group="3_電気の利用ユニット"
   export function eureka_denkiwhite(mode: onoff) {
 
         if (mode == onoff.ON) {
