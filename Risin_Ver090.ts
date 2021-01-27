@@ -121,6 +121,15 @@ namespace eureka_blocks {
         }
     }
 
+  //% color="#6b8e23"  weight=80 blockId=eureka_tempu block="気温" group="3_電気の利用ユニット"
+  export function eureka_temp(): number {
+        return  1;
+  }
+
+
+
+
+
   //% color="#e439b6" weight=58 blockId=eureka_relay block="FETﾘﾚｰ(ﾃﾞｼﾞﾀﾙ出力) |%mode|" group="4_外部制御"
   export function eureka_relay(mode: onoff) {
         if (mode == onoff.ON) {
