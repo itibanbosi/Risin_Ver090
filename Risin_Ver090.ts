@@ -26,6 +26,13 @@ enum updown{
     以上,
     以下,
 }
+enum kurasa{
+    暗い,
+    明るい,
+}
+
+
+
 
 //% color="#74ad1d" block="理科ボードＡ 1.0"
 
@@ -82,15 +89,23 @@ namespace eureka_blocks {
   
   
   
-    //% color="#6b8e23"  weight=81 block="光ｾﾝｻ値 |%limit| より暗い" group="3_電気の利用ユニット"
+    //% color="#6b8e23"  weight=81 block="光ｾﾝｻ値 |%limit| より |%syoudo|" group="3_電気の利用ユニット"
   //% limit.min=0 limit.max=100
-  export function decideLight(limit: number){
-
-        if ((pins.analogReadPin(AnalogPin.P1) / 1023) * 100 < limit) {
-          return true;
-        } else {
-          return false;
-        }
+  export function decideLight(limit: number,syoudo:kurasa) :boolean {
+      switch(syoudo){
+        case kurasa.暗い:
+            if ((pins.analogReadPin(AnalogPin.P1) / 1023) * 100 < limit) {
+              return true;
+            } else {
+              return false;
+            }
+        case kurasa.明るい:
+            if ((pins.analogReadPin(AnalogPin.P1) / 1023) * 100 > limit) {
+              return true;
+            } else {
+              return false;
+            }
+      }
     }
 
 
