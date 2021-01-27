@@ -23,7 +23,7 @@ enum LED_onoff {
 }
 
 
-//% color="#74ad1d" block="理振ボードVer090"
+//% color="#74ad1d" block="理科ボードＡ 1.0"
 
 namespace eureka_blocks {
 
