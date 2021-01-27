@@ -140,12 +140,12 @@ namespace eureka_blocks {
         }
     }
 
-  //% color="#6b8e23"  weight=68 blockId=eureka_temperature1 block="気温" group="4 気象センサ"
+  //% color="#ff1493"  weight=68 blockId=eureka_temperature1 block="気温" group="4 気象センサ"
   export function eureka_temperature1(): number {
         return  BMP280.temperature();
   }
 
-  //% color="#6b8e23"  weight=66 blockId=eureka_temperature2 block="気温 |%limit| ℃より |%futougou| " group="4 気象センサ"
+  //% color="#ff1493"  weight=66 blockId=eureka_temperature2 block="気温 |%limit| ℃より |%futougou| " group="4 気象センサ"
   //% limit.min=0 limit.max=40
   export function eureka_temperature2(limit: number,futougou:updown): boolean{
     switch(futougou){
@@ -169,7 +169,7 @@ namespace eureka_blocks {
             break;          
     }
   }
-  //% color="#6b8e23"  weight=64 blockId=eureka_pressure block="気圧(hPa)" group="4 気象センサ"
+  //% color="#ff69b4"  weight=64 blockId=eureka_pressure block="気圧(hPa)" group="4 気象センサ"
   export function eureka_pressure (): number {
         return  Math.round(BMP280.pressure()/100);
   }
