@@ -38,39 +38,7 @@ namespace eureka_blocks {
     }
   }
  
- 
-   //% color="#4741f1" weight=89 blockId=eureka_tl_blue block="青信号 点灯|%mode|" group="2_信号機ユニット"
-    export function eureka_tl_blue(mode: onoff) {
-    
-        if (mode == onoff.ON) {
-          return pins.digitalWritePin(DigitalPin.P14, 1);
-        } else {
-          return pins.digitalWritePin(DigitalPin.P14, 0);
-        }
-
-  }
-
-  //% color="#ffa800" weight=87 blockId=eureka_tl_yellow block="黄信号 点灯|%mode|" group="2_信号機ユニット"
-  export function eureka_tl_yellow(mode: onoff) {
-
-        if (mode == onoff.ON) {
-          return pins.digitalWritePin(DigitalPin.P13, 1);
-        } else {
-          return pins.digitalWritePin(DigitalPin.P13, 0);
-        }
-  }
-
-  //% color="#ff4940" weight=85 blockId=eureka_tl_red block="赤信号 点灯|%mode|" group="2_信号機ユニット"
-  export function eureka_tl_red(mode: onoff) {
-
-        if (mode == onoff.ON) {
-          return pins.digitalWritePin(DigitalPin.P8, 1);
-        } else {
-          return pins.digitalWritePin(DigitalPin.P8, 0);
-        }
-  }
-
-  //% color="#1E90FF" weight=83 block="待ち時間（秒）|%second|" group="2_信号機ユニット"
+  //% color="#1E90FF" weight=83 block="待ち時間（秒）|%second|" group="2_動作"
   //% second.min=0 second.max=10
   export function driveForwards(second: number): void {
     basic.pause(second * 1000);
@@ -143,7 +111,7 @@ namespace eureka_blocks {
         return pins.digitalReadPin(DigitalPin.P16);
   }
 
-  //% color="#e7e371" weight=75 blockId=eureka_denkiwhite block="白LED |%mode|" group="3_電気の利用ユニット"
+  //% color="#daa520" weight=75 blockId=eureka_denkiwhite block="白LED |%mode|" group="3_電気の利用ユニット"
   export function eureka_denkiwhite(mode: onoff) {
 
         if (mode == onoff.ON) {
