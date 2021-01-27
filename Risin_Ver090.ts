@@ -140,7 +140,7 @@ namespace eureka_blocks {
 
 
 
- //% color="#858585" weight=52 blockId=eureka_mdriver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ ﾁｬﾝﾈﾙ |%channel| 動き|%mode|" group="4_ユーレカ装置"
+ //% color="#b22222" weight=52 blockId=eureka_mdriver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ ﾁｬﾝﾈﾙ |%channel| 動き|%mode|" group="4_ユーレカ装置"
   export function eureka_mdriver(channel: eureka_channel , mode: moter_d) {
     led.enable(false);
     switch (channel) {
@@ -177,7 +177,7 @@ namespace eureka_blocks {
 
   }
 
- //% color="#858585" weight=52 blockId=eureka_ana_mdriver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ ﾁｬﾝﾈﾙ |%channel_AB| 動き|%mode| 出力|%power|" group="4_ユーレカ装置"
+ //% color="#b22222" weight=52 blockId=eureka_ana_mdriver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ ﾁｬﾝﾈﾙ |%channel_AB| 動き|%mode| 出力|%power|" group="4_ユーレカ装置"
   //% power.min=0 power.max=1023
   export function eureka_ana_mdriver(channel_AB: eureka_channel , mode: moter_d ,power:number) {
     led.enable(false);
