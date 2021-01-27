@@ -22,6 +22,10 @@ enum LED_onoff {
   有効,
 }
 
+enum updown{
+    以上,
+    以下,
+}
 
 //% color="#74ad1d" block="理科ボードＡ 1.0"
 
@@ -121,12 +125,35 @@ namespace eureka_blocks {
         }
     }
 
-  //% color="#6b8e23"  weight=80 blockId=eureka_tempu block="気温" group="3_電気の利用ユニット"
-  export function eureka_temp(): number {
-        return  BMP280.temperature()/100;
+  //% color="#6b8e23"  weight=68 blockId=eureka_temperature1 block="気温" group="4 気象センサ"
+  export function eureka_temperature1(): number {
+        return  BMP280.temperature();
   }
 
-
+  //% color="#6b8e23"  weight=66 blockId=eureka_temperature2 block="気温 |%limit| ℃より |%futougou| " group="4 気象センサ"
+  //% limit.min=0 limit.max=40
+  export function eureka_temperature2(limit: number,futougou:updown): boolean{
+    switch(futougou){
+        case updown.以上:
+             if (
+            BMP280.temperature() >= limit)
+             {
+            return true;
+            } else {
+            return false;
+            }
+            break;
+          case updown.以下:
+             if (
+            BMP280.temperature() <= limit)
+             {
+            return true;
+            } else {
+            return false;
+            }
+            break;          
+    }
+  }
 
 
 
