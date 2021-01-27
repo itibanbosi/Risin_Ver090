@@ -169,9 +169,9 @@ namespace eureka_blocks {
             break;          
     }
   }
-  //% color="#6b8e23"  weight=68 blockId=eureka_pressure block="気圧(hPa)" group="4 気象センサ"
+  //% color="#6b8e23"  weight=64 blockId=eureka_pressure block="気圧(hPa)" group="4 気象センサ"
   export function eureka_pressure (): number {
-        return  BMP280.pressure();
+        return  Math.round(BMP280.pressure()/100);
   }
 
 
