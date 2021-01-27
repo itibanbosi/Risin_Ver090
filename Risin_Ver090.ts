@@ -38,14 +38,14 @@ namespace eureka_blocks {
     }
   }
  
-  //% color="#1E90FF" weight=83 block="待ち時間（秒）|%second|" group="2_動作"
+  //% color="#1E90FF" weight=83 block="待ち時間（秒）|%second|" group="1　調整"
   //% second.min=0 second.max=10
   export function driveForwards(second: number): void {
     basic.pause(second * 1000);
   }
 
 
-   //% color="#4741f1" weight=89 blockId=eureka_mame block="豆電球 |%mode|" group="2_動作"
+   //% color="#4741f1" weight=89 blockId=eureka_mame block="豆電球 |%mode|" group="2_豆電球・モーター・LED制御"
     export function eureka_mame(mode: onoff) {
     
         if (mode == onoff.ON) {
@@ -56,7 +56,7 @@ namespace eureka_blocks {
 
   }
 
-  //% color="#ffa500" weight=87 blockId=eureka_moter block="モーター |%mode|" group="2_動作"
+  //% color="#ffa500" weight=87 blockId=eureka_moter block="モーター |%mode|" group="2_豆電球・モーター・LED制御"
   export function eureka_moter(mode: onoff) {
 
         if (mode == onoff.ON) {
@@ -66,7 +66,7 @@ namespace eureka_blocks {
         }
   }
 
-  //% color="#ff4940" weight=85 blockId=eureka_5VLED block="LED |%mode|" group="2_動作"
+  //% color="#ff4940" weight=85 blockId=eureka_5VLED block="LED |%mode|" group="2_豆電球・モーター・LED制御"
   export function eureka_5VLED(mode: onoff) {
 
         if (mode == onoff.ON) {
