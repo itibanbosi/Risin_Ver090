@@ -169,7 +169,10 @@ namespace eureka_blocks {
             break;          
     }
   }
-
+  //% color="#6b8e23"  weight=68 blockId=eureka_pressure block="気圧(hPa)" group="4 気象センサ"
+  export function eureka_pressure (): number {
+        return  BMP280.pressure();
+  }
 
 
   //% color="#e439b6" weight=58 blockId=eureka_relay block="FETﾘﾚｰ(ﾃﾞｼﾞﾀﾙ出力) |%mode|" group="4_外部制御"
