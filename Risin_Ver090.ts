@@ -40,8 +40,8 @@ namespace eureka_blocks {
 
 
  
-  //% color="#1E90FF" weight=83 block="待ち時間（秒）|%second|" group="1　調整"
-  //% second.min=0 second.max=10
+  //% color="#1E90FF" weight=83 block="待ち時間（秒）|%second|" group="1　時間調整"
+  //% second.min=0 second.max=15
   export function driveForwards(second: number): void {
     basic.pause(second * 1000);
   }
