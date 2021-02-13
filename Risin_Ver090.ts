@@ -163,6 +163,14 @@ namespace eureka_blocks {
         return  BMP280.temperature();
   }
 
+
+  //% color="#ff1493"  weight=69 blockId=eureka_temperatureLED block="今の気温を表示する" group="6_気象センサ"
+  export function eureka_temperatureLED(){
+        basic.showNumber(BMP280.temperature());
+  }
+
+
+
   //% color="#ff1493"  weight=66 blockId=eureka_temperature2 block="気温 |%limit| ℃より |%futougou| " group="6_気象センサ"
   //% limit.min=0 limit.max=40
   export function eureka_temperature2(limit: number,futougou:updown): boolean{
@@ -192,7 +200,10 @@ namespace eureka_blocks {
         return  Math.round(BMP280.pressure()/100);
   }
 
-
+  //% color="#ff69b4"  weight=65 blockId=eureka_pressureLED block="現在の気圧(hPa)を表示する" group="6_気象センサ"
+  export function eureka_pressureLED () {
+        basic.showNumber(Math.round(BMP280.pressure()/100));
+  }
 
 
 
