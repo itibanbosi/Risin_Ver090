@@ -34,7 +34,7 @@ enum kurasa{
 
 
 
-//% color="#74ad1d" block="理科ボードＡ 1.0"
+//% color="#74ad1d" block="理科ボードＡ 1.1"
 
 namespace eureka_blocks {
 
@@ -113,6 +113,13 @@ namespace eureka_blocks {
   export function eureka_denkitemp(): number {
         return Math.round((pins.analogReadPin(AnalogPin.P1) / 1023) * 100);
   }
+
+
+  //% color="#228b22"  weight=82 blockId=eureka_denkitemp block="光ｾﾝｻ値" group="3_電気の利用ユニット"
+  export function eureka_denkitemp(): number {
+
+
+
 
   //% color="#2e8b57" weight=79 block="人が動いたら" group="3_電気の利用ユニット"
   export function humanDetection(): boolean {
