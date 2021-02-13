@@ -115,8 +115,11 @@ namespace eureka_blocks {
   }
 
 
-  //% color="#228b22"  weight=82 blockId=eureka_denkitemp block="光ｾﾝｻ値" group="3_電気の利用ユニット"
-  export function eureka_denkitemp(): number {
+  //% color="#228b22"  weight=82 blockId=eureka_denkiLED block="光ｾﾝｻ値" group="3_電気の利用ユニット"
+  export function eureka_denkiLED(){
+       basic.showNumber(Math.round((pins.analogReadPin(AnalogPin.P1) / 1023) * 100));
+  }
+
 
 
 
@@ -136,6 +139,14 @@ namespace eureka_blocks {
         pins.setPull(DigitalPin.P16, PinPullMode.PullNone);
         return pins.digitalReadPin(DigitalPin.P16);
   }
+
+  //% color="#009A00"  weight=75 blockId=eureka_denkihuman_disp block="人感ｾﾝｻの値を表示する" group="3_電気の利用ユニット"
+  export function eureka_denkihumandisp() {
+        basic.showNumber(pins.digitalReadPin(DigitalPin.P16));
+  }
+
+
+
 
   //% color="#a9a9a9" weight=75 blockId=eureka_denkiwhite block="白LED |%mode|" group="3_電気の利用ユニット"
   export function eureka_denkiwhite(mode: onoff) {
