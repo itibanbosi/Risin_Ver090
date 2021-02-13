@@ -38,16 +38,7 @@ enum kurasa{
 
 namespace eureka_blocks {
 
-   //% color="#ff3d03" weight=12 blockId=auto_led_off block="ﾏｲｸﾛﾋﾞｯﾄのLEDを |%Matrix_LED| にする" group="1　調整"
-  export function auto_led_off(Matrix_LED:LED_onoff) {
-    switch(Matrix_LED){
-        case LED_onoff.無効:
-        led.enable(false);
-        break;
-        case LED_onoff.有効:
-        led.enable(true);
-    }
-  }
+
  
   //% color="#1E90FF" weight=83 block="待ち時間（秒）|%second|" group="1　調整"
   //% second.min=0 second.max=10
@@ -205,7 +196,16 @@ namespace eureka_blocks {
         basic.showNumber(Math.round(BMP280.pressure()/100));
   }
 
-
+   //% color="#ff3d03" weight=53 blockId=auto_led_off block="ﾏｲｸﾛﾋﾞｯﾄのLEDを |%Matrix_LED| にする" group="7_ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ"
+  export function auto_led_off(Matrix_LED:LED_onoff) {
+    switch(Matrix_LED){
+        case LED_onoff.無効:
+        led.enable(false);
+        break;
+        case LED_onoff.有効:
+        led.enable(true);
+    }
+  }
 
  //% color="#8b008b" weight=52 blockId=eureka_mdriver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ ﾁｬﾝﾈﾙ |%channel| 動き|%mode|" group="7_ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ"
   export function eureka_mdriver(channel: eureka_channel , mode: moter_d) {
