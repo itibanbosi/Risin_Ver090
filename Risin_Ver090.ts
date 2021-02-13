@@ -89,7 +89,7 @@ namespace eureka_blocks {
   
   
   
-    //% color="#228b22"  weight=81 block="光ｾﾝｻ値 |%limit| より |%syoudo|" group="3_電気の利用ユニット"
+    //% color="#228b22"  weight=81 block="光ｾﾝｻ値 |%limit| より |%syoudo|" group="3_光ｾﾝｻｰ"
   //% limit.min=0 limit.max=100
   export function decideLight(limit: number,syoudo:kurasa) :boolean {
       switch(syoudo){
@@ -109,13 +109,13 @@ namespace eureka_blocks {
     }
 
 
-  //% color="#228b22"  weight=80 blockId=eureka_denkitemp block="光ｾﾝｻ値" group="3_電気の利用ユニット"
+  //% color="#228b22"  weight=80 blockId=eureka_denkitemp block="光ｾﾝｻ値" group="3_光ｾﾝｻｰ"
   export function eureka_denkitemp(): number {
         return Math.round((pins.analogReadPin(AnalogPin.P1) / 1023) * 100);
   }
 
 
-  //% color="#228b22"  weight=82 blockId=eureka_denkiLED block="光ｾﾝｻ値" group="3_電気の利用ユニット"
+  //% color="#228b22"  weight=82 blockId=eureka_denkiLED block="光ｾﾝｻの値を表示する" group="3_光ｾﾝｻｰ"
   export function eureka_denkiLED(){
        basic.showNumber(Math.round((pins.analogReadPin(AnalogPin.P1) / 1023) * 100));
   }
@@ -124,7 +124,7 @@ namespace eureka_blocks {
 
 
 
-  //% color="#2e8b57" weight=79 block="人が動いたら" group="3_電気の利用ユニット"
+  //% color="#2e8b57" weight=79 block="人が動いたら" group="4_人感ｾﾝｻｰ"
   export function humanDetection(): boolean {
     pins.setPull(DigitalPin.P16, PinPullMode.PullNone);
         if (pins.digitalReadPin(DigitalPin.P16) == 1) {
@@ -134,13 +134,13 @@ namespace eureka_blocks {
         }
   }
 
-  //% color="#2e8b57"  weight=77 blockId=eureka_denkihuman block="人感ｾﾝｻ値" group="3_電気の利用ユニット"
+  //% color="#2e8b57"  weight=77 blockId=eureka_denkihuman block="人感ｾﾝｻ値" group="4_人感ｾﾝｻｰ"
   export function eureka_denkihuman(): number {
         pins.setPull(DigitalPin.P16, PinPullMode.PullNone);
         return pins.digitalReadPin(DigitalPin.P16);
   }
 
-  //% color="#009A00"  weight=75 blockId=eureka_denkihuman_disp block="人感ｾﾝｻの値を表示する" group="3_電気の利用ユニット"
+  //% color="#009A00"  weight=75 blockId=eureka_denkihuman_disp block="人感ｾﾝｻの値を表示する" group="4_人感ｾﾝｻｰ"
   export function eureka_denkihumandisp() {
         basic.showNumber(pins.digitalReadPin(DigitalPin.P16));
   }
@@ -148,7 +148,7 @@ namespace eureka_blocks {
 
 
 
-  //% color="#a9a9a9" weight=75 blockId=eureka_denkiwhite block="白LED |%mode|" group="3_電気の利用ユニット"
+  //% color="#a9a9a9" weight=75 blockId=eureka_denkiwhite block="白LED |%mode|" group="5_白LED"
   export function eureka_denkiwhite(mode: onoff) {
 
         if (mode == onoff.ON) {
@@ -158,12 +158,12 @@ namespace eureka_blocks {
         }
     }
 
-  //% color="#ff1493"  weight=68 blockId=eureka_temperature1 block="気温" group="4 気象センサ"
+  //% color="#ff1493"  weight=68 blockId=eureka_temperature1 block="気温" group="6_気象センサ"
   export function eureka_temperature1(): number {
         return  BMP280.temperature();
   }
 
-  //% color="#ff1493"  weight=66 blockId=eureka_temperature2 block="気温 |%limit| ℃より |%futougou| " group="4 気象センサ"
+  //% color="#ff1493"  weight=66 blockId=eureka_temperature2 block="気温 |%limit| ℃より |%futougou| " group="6_気象センサ"
   //% limit.min=0 limit.max=40
   export function eureka_temperature2(limit: number,futougou:updown): boolean{
     switch(futougou){
@@ -187,13 +187,13 @@ namespace eureka_blocks {
             break;          
     }
   }
-  //% color="#ff69b4"  weight=64 blockId=eureka_pressure block="気圧(hPa)" group="4 気象センサ"
+  //% color="#ff69b4"  weight=64 blockId=eureka_pressure block="気圧(hPa)" group="6_気象センサ"
   export function eureka_pressure (): number {
         return  Math.round(BMP280.pressure()/100);
   }
 
 
-  //% color="#483d8b" weight=58 blockId=eureka_relay block="FETﾘﾚｰ(ﾃﾞｼﾞﾀﾙ出力) |%mode|" group="5_外部制御"
+  //% color="#483d8b" weight=58 blockId=eureka_relay block="FETﾘﾚｰ(ﾃﾞｼﾞﾀﾙ出力) |%mode|" group="7_外部制御"
   export function eureka_relay(mode: onoff) {
         if (mode == onoff.ON) {
           return pins.digitalWritePin(DigitalPin.P15, 1);
@@ -202,7 +202,7 @@ namespace eureka_blocks {
         }
   }
 
-  //% color="#483d8b" weight=56 blockId=eureka_relay_2 block="FETﾘﾚｰ(ｱﾅﾛｸﾞ出力) |%limit| |%syuturyoku|" group="5_外部制御"
+  //% color="#483d8b" weight=56 blockId=eureka_relay_2 block="FETﾘﾚｰ(ｱﾅﾛｸﾞ出力) |%limit| |%syuturyoku|" group="7_外部制御"
   //% syuturyoku.min=0 syuturyoku.max=1023
   export function eureka_relay_2(syuturyoku: number) {
         return pins.analogWritePin(AnalogPin.P15, syuturyoku);
