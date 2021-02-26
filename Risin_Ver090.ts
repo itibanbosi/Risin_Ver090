@@ -220,7 +220,7 @@ namespace eureka_blocks {
   //% color="#4169e1" weight=26 blockId=eureka_O2LED block="酸素濃度をmicro:bitへ表示" group="酸素センサー"
   export function eureka_O2LED() {
  
-        let O2_0=Math.round( pins.analogReadPin(AnalogPin.P0)/kousei_A*20.95* 10) / 10
+        let O2_0=Math.round( pins.analogReadPin(AnalogPin.P2)/kousei_A*20.95* 10) / 10
         if (O2_0 >= 5 && O2_0 <= 25){
         basic.showString(convertToText("" + O2_0 + "% "));
         }
@@ -233,12 +233,12 @@ namespace eureka_blocks {
   export function eureka_O2serial() {
     basic.pause(100);
 
-        serial.writeLine(convertToText(Math.round( pins.analogReadPin(AnalogPin.P0)/kousei_A*20.95* 100) / 100));
+        serial.writeLine(convertToText(Math.round( pins.analogReadPin(AnalogPin.P2)/kousei_A*20.95* 100) / 100));
   }
 
   //% color="#4169e1"  weight=24 blockId=eureka_O2disp block="酸素濃度" group="酸素センサー"
   export function eureka_O2disp(): number {
-        return pins.analogReadPin(AnalogPin.P0)/kousei_A*20.95;
+        return pins.analogReadPin(AnalogPin.P2)/kousei_A*20.95;
   }
 
 
