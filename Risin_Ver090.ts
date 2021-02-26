@@ -31,10 +31,9 @@ enum kurasa{
     明るい,
 }
 
+let kousei_A=1
 
-
-
-//% color="#74ad1d" block="理科ボードＡ 1.1"
+//% color="#74ad1d" block="理科ボードＡ 1.2"
 
 namespace eureka_blocks {
 
@@ -206,6 +205,41 @@ namespace eureka_blocks {
         led.enable(true);
     }
   }
+
+  //% color="#4169e1" weight=26 blockId=eureka_O2kousei block="酸素センサー校正" group="酸素センサー"
+  export function eureka_O2kousei() {
+        kousei_A=pins.analogReadPin(AnalogPin.P2);
+        
+  }
+  //% color="#4169e1" weight=26 blockId=eureka_O2LED block="酸素濃度をmicro:bitへ表示" group="酸素センサー"
+  export function eureka_O2LED() {
+ 
+        let O2_0=Math.round( pins.analogReadPin(AnalogPin.P0)/kousei_A*20.95* 10) / 10
+        if (O2_0 >= 5 && O2_0 <= 25){
+        basic.showString(convertToText("" + O2_0 + "% "));
+        }
+        else {
+            basic.showString("ER")
+        }
+  }
+
+ //% color="#4169e1" weight=26 blockId=eureka_O2serial block="酸素濃度をシリアル出力" group="酸素センサー"
+  export function eureka_O2serial() {
+    basic.pause(100);
+
+        serial.writeLine(convertToText(Math.round( pins.analogReadPin(AnalogPin.P0)/kousei_A*20.95* 100) / 100));
+  }
+
+  //% color="#4169e1"  weight=24 blockId=eureka_O2disp block="酸素濃度" group="酸素センサー"
+  export function eureka_O2disp(): number {
+        return pins.analogReadPin(AnalogPin.P0)/kousei_A*20.95;
+  }
+
+
+
+
+
+
 
  //% color="#8b008b" weight=52 blockId=eureka_mdriver block="ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ ﾁｬﾝﾈﾙ |%channel| 動き|%mode|" group="7_ﾓｰﾀｰﾄﾞﾗｲﾊﾞｰ"
   export function eureka_mdriver(channel: eureka_channel , mode: moter_d) {
