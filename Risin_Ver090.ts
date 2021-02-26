@@ -30,6 +30,12 @@ enum kurasa{
     暗い,
     明るい,
 }
+enum sonar_avg{
+    平均20回,
+    平均5回,
+    生データ,
+}
+
 
 let kousei_A=1
 
@@ -235,6 +241,147 @@ namespace eureka_blocks {
         return pins.analogReadPin(AnalogPin.P0)/kousei_A*20.95;
   }
 
+
+
+
+
+  //% color="#2a2aba" weight=30 blockId=sonar_ping block="超音波きょりｾﾝｻ |%sonar_quality|" group="超音波距離センサー"
+  export function ping(sonar_quality:sonar_avg): number {
+        if (sonar_quality　==sonar_avg.平均20回){
+            sonar_quality=20
+        }
+        if (sonar_quality==sonar_avg.平均5回){
+            sonar_quality=5
+        }
+        if (sonar_quality==sonar_avg.生データ){
+            sonar_quality=1
+        }
+    let  d1=0;
+    let  d2=0;
+
+    led.enable(false);
+        for ( let i=0 ; i<sonar_quality ; i++ ){
+            basic.pause(5);
+            pins.setPull(DigitalPin.P13, PinPullMode.PullNone);
+            pins.digitalWritePin(DigitalPin.P9, 0);
+            control.waitMicros(2);
+            pins.digitalWritePin(DigitalPin.P9, 1);
+            control.waitMicros(10);
+            pins.digitalWritePin(DigitalPin.P9, 0);
+            // read
+            d1 = pins.pulseIn(DigitalPin.P10, PulseValue.High, 500 * 58);
+            d2=d2+d1;
+            }
+    led.enable(true);
+            return Math.round(Math.idiv(d2/sonar_quality, 58)*1.5);
+
+    
+  }
+
+/*
+  //% color="#2a2aba" weight=28 blockId=sonar_ping_3 block="きょりが |%limit| cmより |%nagasa| |%pin|" group="超音波距離センサー"
+  //% limit.min=0 limit.max=50
+  export function sonar_ping_3(limit: number ,nagasa:kyori,pin: eureka_tlp) {
+    let  d1=0;
+    let  d2=0;
+    if  (pin=="Aﾎﾟｰﾄ") {
+
+
+
+        for ( let i=0 ; i<20 ; i++ ){
+        // send
+        basic.pause(5);
+        pins.setPull(DigitalPin.P16, PinPullMode.PullNone);
+        pins.digitalWritePin(DigitalPin.P13, 0);
+        control.waitMicros(2);
+        pins.digitalWritePin(DigitalPin.P13, 1);
+        control.waitMicros(10);
+        pins.digitalWritePin(DigitalPin.P13, 0);
+        // read
+        d1 = pins.pulseIn(DigitalPin.P14, PulseValue.High, 500 * 58);
+        d2= d1+d2;
+        }
+        switch(nagasa){
+            case kyori.短い:
+                if (Math.idiv(d2/20, 58) * 1.5 < limit) {
+                return true;
+                } else {
+                return false;
+                }
+            case kyori.長い:
+                if (Math.idiv(d2/20, 58) * 1.5 < limit) {
+                return false;
+                } else {
+                return true;
+            }
+        }
+    }
+    }
+*/  
+
+
+
+ //% color="#2a2aba" weight=27 blockId=sonar_ping_3 block="きょりが |%limit| cmより長い" group="超音波距離センサー"
+  //% limit.min=0 limit.max=50
+  export function sonar_ping_3(limit: number) :boolean{
+    let  d1=0;
+    let  d2=0;
+
+    led.enable(false);
+        for ( let i=0 ; i<20 ; i++ ){
+        // send
+        basic.pause(5);
+        pins.setPull(DigitalPin.P16, PinPullMode.PullNone);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(2);
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(10);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        // read
+        d1 = pins.pulseIn(DigitalPin.P10, PulseValue.High, 500 * 58);
+        d2= d1+d2;
+        }
+    led.enable(true); 
+                if (Math.idiv(d2/20, 58) * 1.5 < limit) {
+                return false;
+                } else {
+                return true;
+                }
+ 
+            
+    }
+
+
+
+  //% color="#2a2aba" weight=28 blockId=sonar_ping_4 block="きょりが |%limit| cmより短い" group="超音波距離センサー"
+  //% limit.min=0 limit.max=50
+  export function sonar_ping_4(limit: number ) :boolean{
+    let  d1=0;
+    let  d2=0;
+
+    led.enable(false);
+        for ( let i=0 ; i<20 ; i++ ){
+        // send
+        basic.pause(5);
+        pins.setPull(DigitalPin.P16, PinPullMode.PullNone);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(2);
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(10);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        // read
+        d1 = pins.pulseIn(DigitalPin.P10, PulseValue.High, 500 * 58);
+        d2= d1+d2;
+        }
+    led.enable(true);
+                if (Math.idiv(d2/20, 58) * 1.5 < limit) {
+                return true;
+                } else {
+                return false;
+                }
+ 
+
+        }
 
 
 
