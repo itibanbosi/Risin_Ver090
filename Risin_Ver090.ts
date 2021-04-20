@@ -259,7 +259,7 @@ namespace eureka_blocks {
     let  d1=0;
     let  d2=0;
 
-    led.enable(false);
+/*    led.enable(false);*/
         for ( let i=0 ; i<sonar_quality ; i++ ){
             basic.pause(5);
             pins.setPull(DigitalPin.P13, PinPullMode.PullNone);
@@ -272,7 +272,7 @@ namespace eureka_blocks {
             d1 = pins.pulseIn(DigitalPin.P10, PulseValue.High, 500 * 58);
             d2=d2+d1;
             }
-    led.enable(true);
+/*    led.enable(true);*/
             return Math.round(Math.idiv(d2/sonar_quality, 58)*1.5);
 
     
