@@ -259,7 +259,7 @@ namespace eureka_blocks {
     let  d1=0;
     let  d2=0;
 
-/*    led.enable(false);*/
+
         for ( let i=0 ; i<sonar_quality ; i++ ){
             basic.pause(5);
             pins.setPull(DigitalPin.P13, PinPullMode.PullNone);
@@ -272,7 +272,7 @@ namespace eureka_blocks {
             d1 = pins.pulseIn(DigitalPin.P10, PulseValue.High, 500 * 58);
             d2=d2+d1;
             }
-/*    led.enable(true);*/
+
             return Math.round(Math.idiv(d2/sonar_quality, 58)*1.5);
 
     
@@ -327,7 +327,7 @@ namespace eureka_blocks {
     let  d1=0;
     let  d2=0;
 
-    led.enable(false);
+
         for ( let i=0 ; i<20 ; i++ ){
         // send
         basic.pause(5);
@@ -341,7 +341,7 @@ namespace eureka_blocks {
         d1 = pins.pulseIn(DigitalPin.P10, PulseValue.High, 500 * 58);
         d2= d1+d2;
         }
-    led.enable(true); 
+
                 if (Math.idiv(d2/20, 58) * 1.5 < limit) {
                 return false;
                 } else {
@@ -359,7 +359,7 @@ namespace eureka_blocks {
     let  d1=0;
     let  d2=0;
 
-    led.enable(false);
+
         for ( let i=0 ; i<20 ; i++ ){
         // send
         basic.pause(5);
@@ -373,7 +373,7 @@ namespace eureka_blocks {
         d1 = pins.pulseIn(DigitalPin.P10, PulseValue.High, 500 * 58);
         d2= d1+d2;
         }
-    led.enable(true);
+
                 if (Math.idiv(d2/20, 58) * 1.5 < limit) {
                 return true;
                 } else {
