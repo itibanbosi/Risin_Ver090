@@ -39,7 +39,7 @@ enum sonar_avg{
 
 let kousei_A=1
 
-//% color="#74ad1d" block="理科ボードＡ 1.2"
+//% color="#74ad1d" block="理科ボードＡ 1.3"
 
 namespace eureka_blocks {
 
