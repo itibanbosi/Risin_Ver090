@@ -278,46 +278,13 @@ namespace eureka_blocks {
     
   }
 
-/*
-  //% color="#2a2aba" weight=28 blockId=sonar_ping_3 block="きょりが |%limit| cmより |%nagasa| |%pin|" group="超音波距離センサー"
-  //% limit.min=0 limit.max=50
-  export function sonar_ping_3(limit: number ,nagasa:kyori,pin: eureka_tlp) {
-    let  d1=0;
-    let  d2=0;
-    if  (pin=="Aﾎﾟｰﾄ") {
+
+ //% color="#2a2aba" weight=29 blockId=sonar_ping_2 block="きょりが |%" group="超音波距離センサー"
+  export function sonar_ping_2(){
+    basic.showNumber(eureka_blocks.ping(sonar_avg.生データ))
+       }
 
 
-
-        for ( let i=0 ; i<20 ; i++ ){
-        // send
-        basic.pause(5);
-        pins.setPull(DigitalPin.P16, PinPullMode.PullNone);
-        pins.digitalWritePin(DigitalPin.P13, 0);
-        control.waitMicros(2);
-        pins.digitalWritePin(DigitalPin.P13, 1);
-        control.waitMicros(10);
-        pins.digitalWritePin(DigitalPin.P13, 0);
-        // read
-        d1 = pins.pulseIn(DigitalPin.P14, PulseValue.High, 500 * 58);
-        d2= d1+d2;
-        }
-        switch(nagasa){
-            case kyori.短い:
-                if (Math.idiv(d2/20, 58) * 1.5 < limit) {
-                return true;
-                } else {
-                return false;
-                }
-            case kyori.長い:
-                if (Math.idiv(d2/20, 58) * 1.5 < limit) {
-                return false;
-                } else {
-                return true;
-            }
-        }
-    }
-    }
-*/  
 
 
 
