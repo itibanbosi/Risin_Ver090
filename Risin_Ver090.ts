@@ -279,7 +279,7 @@ namespace eureka_blocks {
   }
 
 
- //% color="#2a2aba" weight=29 blockId=sonar_ping_2 block="きょりが |%" group="超音波距離センサー"
+ //% color="#2a2aba" weight=29 blockId=sonar_ping_2 block="きょりを表示 |%" group="超音波距離センサー"
   export function sonar_ping_2(){
     basic.showNumber(eureka_blocks.ping(sonar_avg.生データ))
        }
