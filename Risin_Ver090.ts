@@ -247,7 +247,7 @@ namespace eureka_blocks {
 
 
 
-  //% color="#2a2aba" weight=30 blockId=sonar_ping block="超音波きょりｾﾝｻ " group="超音波距離センサー"
+  //% color="#2a2aba" weight=30 blockId=sonar_ping block="超音波きょりｾﾝｻ " group="B Borad[距離センサー]"
   export function ping(): number {
     let  d1=0;
     let  d2=0;
@@ -313,7 +313,7 @@ namespace eureka_blocks {
 
 
 
-  //% color="#2a2aba" weight=28 blockId=sonar_ping_4 block="きょりが |%limit| cmより短い" group="超音波距離センサー"
+  //% color="#2a2aba" weight=28 blockId=sonar_ping_4 block="きょりが |%limit| cmより短い" group="B Borad[距離センサー]"
   //% limit.min=5 limit.max=50
   export function sonar_ping_4(limit: number ) :boolean{
     let  d1=0;
