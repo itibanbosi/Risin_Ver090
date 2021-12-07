@@ -1,3 +1,5 @@
+/* Ver1.4 rika_board*/
+
 enum eureka_channel {
   A,
   B,
@@ -39,7 +41,7 @@ enum sonar_avg{
 
 let kousei_A=1
 
-//% color="#74ad1d" block="理科ボードＡ 1.3"
+//% color="#74ad1d" weight=89 block="理科ボード 1.4"
 
 namespace eureka_blocks {
 
@@ -270,7 +272,7 @@ namespace eureka_blocks {
   }
 
 
- //% color="#2a2aba" weight=29 blockId=sonar_ping_2 block="きょりを表示 |%" group="超音波距離センサー"
+ //% color="#2a2aba" weight=29 blockId=sonar_ping_2 block="きょりを表示 |%" group="B Borad[距離センサー]"
   export function sonar_ping_2(){
     basic.showNumber(eureka_blocks.ping())
        }
@@ -279,8 +281,8 @@ namespace eureka_blocks {
 
 
 
- //% color="#2a2aba" weight=27 blockId=sonar_ping_3 block="きょりが |%limit| cmより長い" group="超音波距離センサー"
-  //% limit.min=0 limit.max=50
+ //% color="#2a2aba" weight=27 blockId=sonar_ping_3 block="きょりが |%limit| cmより長い" group="B Borad[距離センサー]"
+  //% limit.min=5 limit.max=50
   export function sonar_ping_3(limit: number) :boolean{
     let  d1=0;
     let  d2=0;
@@ -312,7 +314,7 @@ namespace eureka_blocks {
 
 
   //% color="#2a2aba" weight=28 blockId=sonar_ping_4 block="きょりが |%limit| cmより短い" group="超音波距離センサー"
-  //% limit.min=0 limit.max=50
+  //% limit.min=5 limit.max=50
   export function sonar_ping_4(limit: number ) :boolean{
     let  d1=0;
     let  d2=0;
