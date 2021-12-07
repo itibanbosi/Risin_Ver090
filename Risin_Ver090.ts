@@ -245,22 +245,13 @@ namespace eureka_blocks {
 
 
 
-  //% color="#2a2aba" weight=30 blockId=sonar_ping block="超音波きょりｾﾝｻ |%sonar_quality|" group="超音波距離センサー"
-  export function ping(sonar_quality:sonar_avg): number {
-        if (sonar_quality　==sonar_avg.平均20回){
-            sonar_quality=20
-        }
-        if (sonar_quality==sonar_avg.平均5回){
-            sonar_quality=5
-        }
-        if (sonar_quality==sonar_avg.生データ){
-            sonar_quality=1
-        }
+  //% color="#2a2aba" weight=30 blockId=sonar_ping block="超音波きょりｾﾝｻ " group="超音波距離センサー"
+  export function ping(): number {
     let  d1=0;
     let  d2=0;
 
 
-        for ( let i=0 ; i<sonar_quality ; i++ ){
+        for ( let i=0 ; i<5 ; i++ ){
             basic.pause(5);
             pins.setPull(DigitalPin.P13, PinPullMode.PullNone);
             pins.digitalWritePin(DigitalPin.P0, 0);
@@ -273,7 +264,7 @@ namespace eureka_blocks {
             d2=d2+d1;
             }
 
-            return Math.round(Math.idiv(d2/sonar_quality, 58)*1.5);
+            return Math.round(Math.idiv(d2/5, 58)*1.5);
 
     
   }
@@ -281,7 +272,7 @@ namespace eureka_blocks {
 
  //% color="#2a2aba" weight=29 blockId=sonar_ping_2 block="きょりを表示 |%" group="超音波距離センサー"
   export function sonar_ping_2(){
-    basic.showNumber(eureka_blocks.ping(sonar_avg.生データ))
+    basic.showNumber(eureka_blocks.ping())
        }
 
 
