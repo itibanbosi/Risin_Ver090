@@ -222,7 +222,7 @@ namespace eureka_blocks {
                 break;
         }
     }
-    //% color="#9400d3" weight=81 blockId=neopixel_reinbow block="にじ色にする" group="1 iːoネオピクセル"
+    //% color="#20b2aa" weight=81 blockId=neopixel_reinbow block="にじ色にする" group="1 iːoネオピクセル"
     export function neopixel_rainbow() {
         io_neo.showRainbow(1, 180)
     }
@@ -230,7 +230,7 @@ namespace eureka_blocks {
 
 
 
-    //% color="#cd853f" weight=80 blockId=neopixel_erace block="ﾌﾙｶﾗｰLEDを全部消す" group="1 iːoネオピクセル"
+    //% color="#20b2aa" weight=80 blockId=neopixel_erace block="ﾌﾙｶﾗｰLEDを全部消す" group="1 iːoネオピクセル"
     export function neopixel_erace_block() {
         for (let n = 0; n < 3; n++) {
             io_neo.setPixelColor(n, neopixel.colors(NeoPixelColors.Black))
