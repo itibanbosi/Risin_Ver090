@@ -1,4 +1,4 @@
-/* Ver1.4 rika_board*/
+/* Ver1.5 rika_board*/
 
 enum eureka_channel {
   A,
@@ -54,7 +54,7 @@ let kousei_A=1
 
 let io_neo = neopixel.create(DigitalPin.P9, 3, NeoPixelMode.RGB);
 
-//% color="#74ad1d" weight=89 block="理科ボード 1.4"
+//% color="#74ad1d" weight=89 block="理科ボード 1.5"
 
 namespace eureka_blocks {
 
