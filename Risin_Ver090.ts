@@ -1,4 +1,4 @@
-/* Ver1.4 rika_board*/
+/* Ver1.5 rika_board_A*/
 
 enum eureka_channel {
     A,
@@ -32,16 +32,12 @@ enum kurasa {
     暗い,
     明るい,
 }
-enum sonar_avg {
-    平均20回,
-    平均5回,
-    生データ,
-}
+
 
 
 let kousei_A = 1
 
-//% color="#74ad1d" weight=89 block="理科ボード 1.4"
+//% color="#74ad1d" weight=89 block="理科ボードA"
 
 namespace eureka_blocks {
 
@@ -239,106 +235,6 @@ namespace eureka_blocks {
     //% color="#4169e1"  weight=24 blockId=eureka_O2disp block="酸素濃度" group="酸素センサー"
     export function eureka_O2disp(): number {
         return pins.analogReadPin(AnalogPin.P2) / kousei_A * 20.95;
-    }
-
-
-
-
-
-    //% color="#2a2aba" weight=30 blockId=sonar_ping block="超音波きょりｾﾝｻ " group="B Borad[距離センサー]"
-    export function ping(): number {
-        let d1 = 0;
-        let d2 = 0;
-
-
-        for (let i = 0; i < 5; i++) {
-            basic.pause(5);
-            pins.setPull(DigitalPin.P13, PinPullMode.PullNone);
-            pins.digitalWritePin(DigitalPin.P0, 0);
-            control.waitMicros(2);
-            pins.digitalWritePin(DigitalPin.P0, 1);
-            control.waitMicros(10);
-            pins.digitalWritePin(DigitalPin.P0, 0);
-            // read
-            d1 = pins.pulseIn(DigitalPin.P2, PulseValue.High, 500 * 58);
-            d2 = d2 + d1;
-        }
-
-        return Math.round(Math.idiv(d2 / 5, 58) * 1.5);
-
-
-    }
-
-
-    //% color="#2a2aba" weight=29 blockId=sonar_ping_2 block="きょりを表示 |%" group="B Borad[距離センサー]"
-    export function sonar_ping_2() {
-        basic.showNumber(eureka_blocks.ping())
-    }
-
-
-
-
-
-    //% color="#2a2aba" weight=27 blockId=sonar_ping_3 block="きょりが |%limit| cmより長い" group="B Borad[距離センサー]"
-    //% limit.min=5 limit.max=50
-    export function sonar_ping_3(limit: number): boolean {
-        let d1 = 0;
-        let d2 = 0;
-
-
-        for (let i = 0; i < 20; i++) {
-            // send
-            basic.pause(5);
-            pins.setPull(DigitalPin.P16, PinPullMode.PullNone);
-            pins.digitalWritePin(DigitalPin.P0, 0);
-            control.waitMicros(2);
-            pins.digitalWritePin(DigitalPin.P0, 1);
-            control.waitMicros(10);
-            pins.digitalWritePin(DigitalPin.P0, 0);
-            // read
-            d1 = pins.pulseIn(DigitalPin.P2, PulseValue.High, 500 * 58);
-            d2 = d1 + d2;
-        }
-
-        if (Math.idiv(d2 / 20, 58) * 1.5 < limit) {
-            return false;
-        } else {
-            return true;
-        }
-
-
-    }
-
-
-
-    //% color="#2a2aba" weight=28 blockId=sonar_ping_4 block="きょりが |%limit| cmより短い" group="B Borad[距離センサー]"
-    //% limit.min=5 limit.max=50
-    export function sonar_ping_4(limit: number): boolean {
-        let d1 = 0;
-        let d2 = 0;
-
-
-        for (let i = 0; i < 20; i++) {
-            // send
-            basic.pause(5);
-            pins.setPull(DigitalPin.P16, PinPullMode.PullNone);
-            pins.digitalWritePin(DigitalPin.P0, 0);
-            control.waitMicros(2);
-            pins.digitalWritePin(DigitalPin.P0, 1);
-            control.waitMicros(10);
-            pins.digitalWritePin(DigitalPin.P0, 0);
-            // read
-            d1 = pins.pulseIn(DigitalPin.P2, PulseValue.High, 500 * 58);
-            d2 = d1 + d2;
-        }
-
-        if (Math.idiv(d2 / 20, 58) * 1.5 < limit) {
-            return true;
-        } else {
-            return false;
-        }
-
-
     }
 
 
